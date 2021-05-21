@@ -1,4 +1,38 @@
 .features {
     background-color: $color-grey-light-2;
     grid-column: center-start/ center-end;
+    margin: 15rem 0;
+
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 6rem;
+}
+
+.feature {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: min-content 1fr;
+    row-gap: 1rem;
+    column-gap: 2rem;
+    grid-template-areas:
+        "icon heading"
+        ".  text";
+    align-items: start;
+    &__icon {
+        grid-area: icon;
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    &__text {
+        grid-area: text;
+        text-align: justify;
+        font-size: 1.7rem;
+    }
+
+    .heading-4 {
+        grid-area: heading;
+    }
 }
