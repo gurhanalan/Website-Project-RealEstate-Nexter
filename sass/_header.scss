@@ -9,8 +9,8 @@
     background-position: center;
 
     display: grid;
-    grid-template-columns: max-content;
-    grid-template-rows: 1fr min-content 6rem 1fr;
+    grid-template-columns: minmax(min-content, max-content);
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
     align-items: start;
     justify-items: start;
     justify-content: center;
@@ -27,7 +27,9 @@
 
     &__seenon-text {
         font-size: 1.6rem;
-        display: block;
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        align-items: center;
         text-align: center;
         width: 100%;
         position: relative;
@@ -36,30 +38,34 @@
         &::before,
         &::after {
             content: "";
-            width: 45%;
+            width: 100%;
             height: 1px;
             background-color: currentColor;
             display: block;
-            position: absolute;
+            // position: absolute;
         }
-        &::before {
-            top: 45%;
-            left: 0;
-        }
+        // &::before {
+        //     top: 45%;
+        //     left: 0;
+        // }
 
-        &::after {
-            top: 45%;
+        // &::after {
+        //     top: 45%;
 
-            right: 0;
-        }
+        //     right: 0;
+        // }
     }
     &__seenon-logos {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         width: 100%;
-        justify-content: space-around;
-        // gap: 2rem;
+        // justify-content: space-around;
+        align-items: center;
+        justify-items: center;
+        gap: 2rem;
         img {
-            height: 2.5rem;
+            max-height: 2.5rem;
+            max-width: 100%;
             filter: brightness(70%);
         }
     }
